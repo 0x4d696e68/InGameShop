@@ -66,7 +66,7 @@ bool CShopPackageList::GetValueByKey(int nKey,CShopPackage& package) // OK
 
 bool CShopPackageList::GetValueByIndex(int nIndex,CShopPackage& package) // OK
 {
-	if(nIndex>=static_cast<int>(this->m_PackageIndex.size()))
+	if(nIndex<0||nIndex>=static_cast<int>(this->m_PackageIndex.size()))
 	{
 		return 0;
 	}
