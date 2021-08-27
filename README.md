@@ -1,5 +1,5 @@
 # InGameShop
-MuOnline InGameShop Library
+MuOnline InGameShop Libraries
 
 Decompiled by @myheart
 
