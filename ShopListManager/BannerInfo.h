@@ -8,12 +8,9 @@ class CBannerInfo
 {
 public:
 	CBannerInfo();
-	//CBannerInfo(const CBannerInfo*info);
 	virtual ~CBannerInfo();
 
 	bool	SetBanner(std::string strdata, std::string strDirPath, bool bDonwLoad);
-
-	//void operator=(CBannerInfo*info);
 
 public:	
 	int		BannerSeq;									//  1. 배너 그룹 순번

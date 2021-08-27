@@ -15,24 +15,6 @@
 
 #include <fstream>
 
-//CBannerInfo::CBannerInfo(const CBannerInfo* info) // OK
-//{
-//	this->BannerSeq = info->BannerSeq;
-//	memcpy(this->BannerName,info->BannerName,sizeof(this->BannerName));
-//	memcpy(this->BannerImageURL,info->BannerImageURL,sizeof(this->BannerImageURL));
-//	this->BannerOrder = info->BannerOrder;
-//	this->BannerDirection = info->BannerDirection;
-//	memcpy(&this->BannerStartDate,&info->BannerStartDate,sizeof(this->BannerStartDate));
-//	memcpy(&this->BannerEndDate,&info->BannerEndDate,sizeof(this->BannerEndDate));
-//	memcpy(this->BannerLinkURL,info->BannerLinkURL,sizeof(this->BannerLinkURL));
-//	memcpy(this->BannerImagePath,info->BannerImagePath,sizeof(this->BannerImagePath));
-//}
-//
-//void CBannerInfo::operator=(CBannerInfo* info) // OK
-//{
-//	
-//}
-
 CBannerInfoList::CBannerInfoList() // OK
 {
 	this->Clear();
