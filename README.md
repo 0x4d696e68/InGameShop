@@ -14,4 +14,3 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 [@myheart](https://forum.ragezone.com/members/2000236254.html) - 0x4d696e68@gmail.com
 
-Project Link: [https://github.com/0x4d696e68/InGameShop](https://github.com/0x4d696e68/InGameShop)
