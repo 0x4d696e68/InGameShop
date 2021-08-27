@@ -14,3 +14,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 [@myheart](https://forum.ragezone.com/members/2000236254.html) - 0x4d696e68@gmail.com
 
+Project Thread: [https://forum.ragezone.com/f508/development-source-mu-main-1-a-1199222](https://forum.ragezone.com/f508/development-source-mu-main-1-a-1199222)
