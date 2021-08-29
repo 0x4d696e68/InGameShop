@@ -70,7 +70,7 @@ WZResult		FTPConnecter::OpenRemoteFile(HINTERNET& hConnection,
 {
 	struct _WIN32_FIND_DATAA FindFileData = {0};
 
-	HINTERNET hInternet = FtpFindFirstFileA(hConnection,this->m_pFileInfo->GetRemoteFilePath(),&FindFileData,0x84000000,(DWORD_PTR)this);
+	HINTERNET hInternet = FtpFindFirstFile(hConnection,this->m_pFileInfo->GetRemoteFilePath(),&FindFileData,0x84000000,(DWORD_PTR)this);
 
 	if(hInternet)
 	{
@@ -78,7 +78,7 @@ WZResult		FTPConnecter::OpenRemoteFile(HINTERNET& hConnection,
 
 		InternetCloseHandle(hInternet);
 
-		hRemoteFile = FtpOpenFileA(hConnection,this->m_pFileInfo->GetRemoteFilePath(),0x80000000,0x84000002,(DWORD_PTR)this);
+		hRemoteFile = FtpOpenFile(hConnection,this->m_pFileInfo->GetRemoteFilePath(),0x80000000,0x84000002,(DWORD_PTR)this);
 
 		if(hRemoteFile)
 		{
@@ -91,7 +91,7 @@ WZResult		FTPConnecter::OpenRemoteFile(HINTERNET& hConnection,
 	}
 	else
 	{
-		this->m_Result.SetResult(DL_GET_FILE_LENGTH,0,"[FTPConnecter::OpenRemoteFile] Fail : FtpFindFirstFile, FileName = %s",this->m_pFileInfo->GetRemoteFilePath());
+		this->m_Result.SetResult(DL_GET_FILE_LENGTH,ERROR_SUCCESS,"[FTPConnecter::OpenRemoteFile] Fail : FtpFindFirstFile, FileName = %s",this->m_pFileInfo->GetRemoteFilePath());
 	}
 
 	return this->m_Result;

@@ -101,7 +101,7 @@ WZResult		HTTPConnecter::OpenRemoteFile(HINTERNET& hConnection,
 			}
 			else
 			{
-				this->m_Result.SetResult(DL_HTTP_STATUS_NOT_OK,0,"[HTTPConnecter::OpenRemoteFile] Fail : Not HTTP_STATUS_OK, FileName = %s",this->m_pFileInfo->GetRemoteFilePath());
+				this->m_Result.SetResult(DL_HTTP_STATUS_NOT_OK,ERROR_SUCCESS,"[HTTPConnecter::OpenRemoteFile] Fail : Not HTTP_STATUS_OK, FileName = %s",this->m_pFileInfo->GetRemoteFilePath());
 			}
 		}
 		else

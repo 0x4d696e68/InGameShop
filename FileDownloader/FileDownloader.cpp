@@ -160,10 +160,10 @@ WZResult 			FileDownloader::CreateConnection()
 
 unsigned int WINAPI FileDownloader::RunConnectThread(LPVOID pParam)
 {
-    FileDownloader* p = reinterpret_cast<FileDownloader*>(pParam);
-
-    if(p)
+    if(pParam)
     {
+        FileDownloader* p = reinterpret_cast<FileDownloader*>(pParam);
+
         p->m_Result = p->Connection();
     }
 
@@ -188,40 +188,40 @@ WZResult 			FileDownloader::TransferRemoteFile()
 
     this->SendStartedDownloadFileEvent(this->m_nFileLength);
 
-    ReadSize = 0;
-    this->m_Result = this->m_pConnecter->ReadRemoteFile(this->m_hRemoteFile,buffer,&ReadSize);
-
-    if(this->CanBeContinue())
+    while(true)
     {
-        while(true)
+        ReadSize = 0;
+        this->m_Result = this->m_pConnecter->ReadRemoteFile(this->m_hRemoteFile,buffer,&ReadSize);
+
+        if(!this->CanBeContinue())
+            break;
+
+        if(ReadSize>0)
         {
-            if(ReadSize>0)
-            {
-                this->m_Result = this->WriteLocalFile(buffer,ReadSize);
+            this->m_Result = this->WriteLocalFile(buffer,ReadSize);
 
-                if(!this->CanBeContinue())
-                    break;
-
-                TotalSize += ReadSize;
-                this->SendProgressDownloadFileEvent(TotalSize);
-            }
-
-            if(ReadSize==0||this->m_bBreak)
-            {
-                if(this->CanBeContinue())
-                {
-                    if(TotalSize>=this->m_nFileLength)
-                    {
-                        this->m_Result.SetSuccessResult();
-                    }
-                    else
-                    {
-                        this->m_Result.SetResult(DL_DIFFERENT_FILE_LENGTH,0,"[FileDownloader::TransferRemoteFile] Fail : Different Down File Size, FileName = %s",this->m_pFileInfo->GetRemoteFilePath());
-                    }
-                }
-
+            if(!this->CanBeContinue())
                 break;
+
+            TotalSize += ReadSize;
+            this->SendProgressDownloadFileEvent(TotalSize);
+        }
+
+        if(ReadSize==0||this->m_bBreak)
+        {
+            if(this->CanBeContinue())
+            {
+                if(TotalSize>=this->m_nFileLength)
+                {
+                    this->m_Result.SetSuccessResult();
+                }
+                else
+                {
+                    this->m_Result.SetResult(DL_DIFFERENT_FILE_LENGTH,0,"[FileDownloader::TransferRemoteFile] Fail : Different Down File Size, FileName = %s",this->m_pFileInfo->GetRemoteFilePath());
+                }
             }
+
+            break;
         }
     }
 

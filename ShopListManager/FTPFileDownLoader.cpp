@@ -70,7 +70,7 @@ WZResult CFTPFileDownLoader::DownLoadFiles(DownloaderType type,
 
 		if(this->m_Break != 0)
 		{
-			result.SetResult(1,0,"Time Out Break");
+			result.SetResult(ERROR_TIMEOUT_BREAK,ERROR_SUCCESS,"Time Out Break");
 			break;
 		}
 

@@ -138,6 +138,9 @@ void	CShopPackage::SetProductSeqList(std::string strdata) // OK
 
 	while(true)
 	{
+		if(token.hasMoreTokens()==0)
+			break;
+
 		std::string data = token.nextToken();
 
 		if(data.empty()) break;
@@ -152,6 +155,9 @@ void	CShopPackage::SetPriceSeqList(std::string strdata) // OK
 
 	while(true)
 	{
+		if(token.hasMoreTokens()==0)
+			break;
+
 		std::string data = token.nextToken();
 
 		if(data.empty()) break;

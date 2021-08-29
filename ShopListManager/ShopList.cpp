@@ -47,11 +47,11 @@ WZResult CShopList::LoadCategroy(const char* szFilePath) // OK
 		LastError = GetLastError();
 	}
 
-	char buff[1024] = {0};
-
 	if(ifs.is_open())
 	{
 		this->GetCategoryListPtr()->Clear();
+
+		char buff[1024] = {0};
 
 		while(true)
 		{
@@ -74,7 +74,7 @@ WZResult CShopList::LoadCategroy(const char* szFilePath) // OK
 	}
 	else
 	{
-		result.SetResult(PT_LOADLIBRARY,LastError,"package file open fail");
+		result.SetResult(ERROR_PACKAGE_OPEN_FAIL,LastError,"package file open fail");
 	}
 
 	return result;
@@ -99,14 +99,16 @@ WZResult CShopList::LoadPackage (const char* szFilePath) // OK
 		LastError = GetLastError();
 	}
 
-	char buff[1024] = {0};
-
 	if(ifs.is_open())
 	{
 		this->GetPackageListPtr()->Clear();
 
+		char buff[1024] = {0};
+
 		while(true)
 		{
+			memset(buff,0,sizeof(buff));
+
 			if(!ifs.getline(buff,sizeof(buff)))
 				break;
 
@@ -123,7 +125,7 @@ WZResult CShopList::LoadPackage (const char* szFilePath) // OK
 	}
 	else
 	{
-		result.SetResult(4,LastError,"package file open fail");
+		result.SetResult(ERROR_PACKAGE_OPEN_FAIL,LastError,"package file open fail");
 	}
 
 	return result;
@@ -150,11 +152,11 @@ WZResult CShopList::LoadProduct (const char* szFilePath) // OK
 		LastError = GetLastError();
 	}
 
-	char buff[1024] = {0};
-
 	if(ifs.is_open())
 	{
 		this->GetProductListPtr()->Clear();
+
+		char buff[1024] = {0};
 
 		while(true)
 		{
@@ -177,7 +179,7 @@ WZResult CShopList::LoadProduct (const char* szFilePath) // OK
 	}
 	else
 	{
-		result.SetResult(4,LastError,"package file open fail");
+		result.SetResult(ERROR_PACKAGE_OPEN_FAIL,LastError,"package file open fail");
 	}
 
 	return result;
@@ -185,17 +187,17 @@ WZResult CShopList::LoadProduct (const char* szFilePath) // OK
 
 void CShopList::SetCategoryListPtr(CShopCategoryList* CategoryListPtr) // OK
 {
-	m_CategoryListPtr = CategoryListPtr;
+	this->m_CategoryListPtr = CategoryListPtr;
 }
 
 void CShopList::SetPackageListPtr (CShopPackageList* PackagePtr) // OK
 {
-	m_PackageListPtr = PackagePtr;
+	this->m_PackageListPtr = PackagePtr;
 }
 
 void CShopList::SetProductListPtr (CShopProductList* ProductListPtr) // OK
 {
-	m_ProductListPtr = ProductListPtr;
+	this->m_ProductListPtr = ProductListPtr;
 }
 
 FILE_ENCODE CShopList::IsFileEncodingUtf8(const char* szFilePath) // OK

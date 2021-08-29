@@ -114,7 +114,7 @@ WZResult		CListManager::LoadScriptList(bool bDonwLoad) // OK
 	{
 		this->DeleteScriptFiles();
 
-		this->m_Result.SetResult(2,0,"File Size Zero");
+		this->m_Result.SetResult(ERROR_FILE_SIZE_ZERO,ERROR_SUCCESS,"File Size Zero");
 	}
 
 	return this->m_Result;
@@ -183,10 +183,6 @@ WZResult		CListManager::FileDownLoad() // OK
 				this->m_pFTPDownLoader->Break();
 
 			WaitForSingleObject(hHandle,INFINITE);
-
-			if(m_pFTPDownLoader!=NULL)
-				if(m_pFTPDownLoader->GetFileDownloader()!=NULL)
-					m_pFTPDownLoader->GetFileDownloader()->Break();
 
 			SAFE_DELETE(m_pFTPDownLoader);
 

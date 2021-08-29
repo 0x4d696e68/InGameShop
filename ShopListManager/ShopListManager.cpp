@@ -48,7 +48,7 @@ WZResult		CShopListManager::LoadScript(bool bDonwLoad) // OK
 	}
 	else
 	{
-		this->m_Result.SetResult(PT_NO_INFO,0,"[CShopListManager::LoadScript] Failed");
+		this->m_Result.SetResult(PT_NO_INFO,ERROR_SUCCESS,"[CShopListManager::LoadScript] Failed");
 	}
 
 	return this->m_Result;
