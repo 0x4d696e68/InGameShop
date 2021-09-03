@@ -123,7 +123,7 @@ TCHAR* Path::GetFileName(TCHAR* szPath)
 		chr = _tcsrchr(szPath,'/');
 
 	if(chr)
-		StringCchCopy(szPath,MAX_PATH,chr+1);
+		StringCchCopy(szPath,MAX_PATH,chr+1); 
 
 	return szPath;
 }
