@@ -20,4 +20,6 @@
 #include <DownloadInfo.h>
 #include <IDownloaderStateEvent.h>
 
+#include <ShopListManager/Include.h>
+
 #pragma comment(lib, "Wininet.lib")

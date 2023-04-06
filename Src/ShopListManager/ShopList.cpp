@@ -222,12 +222,12 @@ FILE_ENCODE CShopList::IsFileEncodingUtf8(const char* szFilePath) // OK
 		return FE_ANSI;
 	}
 
-	if(buff[0]==0xEF&&buff[1]==0xBB&&buff[2]==0xBF)
+	if((BYTE)buff[0]==0xEF&&(BYTE)buff[1]==0xBB&&(BYTE)buff[2]==0xBF)
 	{
 		return FE_UTF8;
 	}
 
-	if(buff[0]==0xFF&&buff[1]==0xFE)
+	if((BYTE)buff[0]==0xFF&&(BYTE)buff[1]==0xFE)
 	{
 		return FE_UNICODE;
 	}

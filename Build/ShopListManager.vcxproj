@@ -18,39 +18,63 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Src\Path.cpp" />
+    <ClCompile Include="..\Src\ShopListManager\BannerInfo.cpp" />
+    <ClCompile Include="..\Src\ShopListManager\BannerInfoList.cpp" />
+    <ClCompile Include="..\Src\ShopListManager\BannerListManager.cpp" />
+    <ClCompile Include="..\Src\ShopListManager\ListManager.cpp" />
+    <ClCompile Include="..\Src\ShopListManager\ShopCategory.cpp" />
+    <ClCompile Include="..\Src\ShopListManager\ShopCategoryList.cpp" />
+    <ClCompile Include="..\Src\ShopListManager\ShopList.cpp" />
+    <ClCompile Include="..\Src\ShopListManager\ShopListManager.cpp" />
+    <ClCompile Include="..\Src\ShopListManager\ShopPackage.cpp" />
+    <ClCompile Include="..\Src\ShopListManager\ShopPackageList.cpp" />
+    <ClCompile Include="..\Src\ShopListManager\ShopProduct.cpp" />
+    <ClCompile Include="..\Src\ShopListManager\ShopProductList.cpp" />
+    <ClCompile Include="..\Src\ShopListManager\StringMethod.cpp" />
+    <ClCompile Include="..\Src\ShopListManager\StringToken.cpp" />
+    <ClCompile Include="..\Src\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Src\WZResult.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{851aa518-a9f0-4120-a028-a22b3c4cd381}</ProjectGuid>
+    <ProjectGuid>{c9411755-6d26-46aa-bc13-a092acd8446d}</ProjectGuid>
     <RootNamespace>ShopListManager</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -85,10 +109,9 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalIncludeDirectories>..\Include\InGameShop;..\Include\InGameShop\ShopListManager;..\Include\InGameShop\WZResult;..\Include\InGameShop\PathMethod;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -101,11 +124,9 @@
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>..\\Common;</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>..\Include\InGameShop;..\Include\InGameShop\ShopListManager;..\Include\InGameShop\WZResult;..\Include\InGameShop\PathMethod;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -114,18 +135,13 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <Lib>
-      <AdditionalOptions>/NODEFAULTLIB %(AdditionalOptions)</AdditionalOptions>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>..\Include\InGameShop;..\Include\InGameShop\ShopListManager;..\Include\InGameShop\WZResult;..\Include\InGameShop\PathMethod;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -138,11 +154,9 @@
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>..\Include\InGameShop;..\Include\InGameShop\ShopListManager;..\Include\InGameShop\WZResult;..\Include\InGameShop\PathMethod;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -152,47 +166,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="BannerInfo.h" />
-    <ClInclude Include="BannerInfoList.h" />
-    <ClInclude Include="BannerListManager.h" />
-    <ClInclude Include="FTPFileDownLoader.h" />
-    <ClInclude Include="Include.h" />
-    <ClInclude Include="ListManager.h" />
-    <ClInclude Include="ShopCategory.h" />
-    <ClInclude Include="ShopCategoryList.h" />
-    <ClInclude Include="ShopList.h" />
-    <ClInclude Include="ShopListManager.h" />
-    <ClInclude Include="ShopPackage.h" />
-    <ClInclude Include="ShopPackageList.h" />
-    <ClInclude Include="ShopProduct.h" />
-    <ClInclude Include="ShopProductList.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="StringMethod.h" />
-    <ClInclude Include="StringToken.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\Common\PathMethod\Path.cpp" />
-    <ClCompile Include="..\Common\WZResult\WZResult.cpp" />
-    <ClCompile Include="BannerInfo.cpp" />
-    <ClCompile Include="BannerInfoList.cpp" />
-    <ClCompile Include="BannerListManager.cpp" />
-    <ClCompile Include="FTPFileDownLoader.cpp" />
-    <ClCompile Include="ListManager.cpp" />
-    <ClCompile Include="ShopCategory.cpp" />
-    <ClCompile Include="ShopCategoryList.cpp" />
-    <ClCompile Include="ShopList.cpp" />
-    <ClCompile Include="ShopListManager.cpp" />
-    <ClCompile Include="ShopPackage.cpp" />
-    <ClCompile Include="ShopPackageList.cpp" />
-    <ClCompile Include="ShopProduct.cpp" />
-    <ClCompile Include="ShopProductList.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="StringMethod.cpp" />
-    <ClCompile Include="StringToken.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

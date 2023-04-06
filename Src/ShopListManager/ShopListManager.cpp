@@ -12,6 +12,8 @@
 #if(DECOMPILE_INGAMESHOP==1)
 #include "ShopListManager.h"
 
+#include <locale>
+
 CShopListManager::CShopListManager() // OK
 {
 	this->m_ShopList = new CShopList;
